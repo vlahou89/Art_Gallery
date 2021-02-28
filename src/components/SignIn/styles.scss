@@ -1,0 +1,31 @@
+.formWrap label {
+  font-size: 1rem;
+  text-align: left;
+  font-weight: bold;
+
+  text-transform: uppercase;
+}
+
+.socialSignin {
+  margin: 0.5rem auto 0;
+}
+
+.links {
+  display: block;
+  width: 100%;
+  margin: 1.2rem auto 0;
+  text-align: center;
+
+  a {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+}
+.formRow input {
+  font-size: 1rem;
+  border-radius: 5px;
+
+  &:focus {
+    border: 2px solid orange;
+  }
+}

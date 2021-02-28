@@ -1,0 +1,83 @@
+{
+  "name": "art-gallery",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@craco/craco": "^6.1.1",
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^4.11.2",
+    "@stripe/react-stripe-js": "^1.1.2",
+    "@stripe/stripe-js": "^1.11.0",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "axios": "^0.21.0",
+    "bootstrap": "^4.6.0",
+    "ckeditor4-react": "^1.4.0",
+    "dotenv": "^8.2.0",
+    "emailjs": "^3.4.0",
+    "emailjs-com": "^2.6.4",
+    "firebase": "^7.14.1",
+    "google-map-react": "^2.1.9",
+    "jquery": "^3.5.1",
+    "mdbreact": "^5.0.1",
+    "moment": "^2.29.1",
+    "node-sass": "^4.13.1",
+    "popper.js": "^1.16.1",
+    "postcss-custom-properties": "^8.0.11",
+    "postcss-import": "^14.0.0",
+    "postcss-nested": "^4.2.3",
+    "react": "^16.13.1",
+    "react-bootstrap": "^1.5.0",
+    "react-bootstrap-carousel": "^4.1.1",
+    "react-country-region-selector": "^3.0.1",
+    "react-dom": "^16.13.1",
+    "react-mailchimp-subscribe": "^2.1.0",
+    "react-particles-js": "^3.4.1",
+    "react-redux": "^7.2.2",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.4.1",
+    "react-scroll": "^1.8.1",
+    "react-tsparticles": "^1.18.12",
+    "react-typed": "^1.2.0",
+    "redux": "^4.0.5",
+    "redux-logger": "^3.0.6",
+    "redux-persist": "^6.0.0",
+    "redux-saga": "^1.1.3",
+    "redux-thunk": "^2.3.0",
+    "reselect": "^4.0.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@tailwindcss/postcss7-compat": "^2.0.3",
+    "autoprefixer": "^9.8.6",
+    "postcss": "^7.0.35",
+    "postcss-cli": "^8.3.1",
+    "stylelint-config-recommended": "^3.0.0",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.3"
+  }
+}
