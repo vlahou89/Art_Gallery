@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import IconButton from "@material-ui/core/IconButton";
+import Icon from "@material-ui/core/Icon";
+import DeleteIcon from "@material-ui/icons/Delete";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addProductStart,
@@ -42,7 +45,7 @@ const Admin = (props) => {
 
   const resetForm = () => {
     setHideModal(true);
-    setProductCategory("paintings");
+    setProductCategory("");
     setProductName("");
     setProductThumbnail("");
     setProductPrice(0);
@@ -79,81 +82,83 @@ const Admin = (props) => {
 
   return (
     <div className="admin">
-      <div className="callToActions">
-        <ul>
-          <li>
-            <Button onClick={() => toggleModal()}>Add new product</Button>
-          </li>
-        </ul>
-      </div>
-
-      <Modal {...configModal}>
-        <div className="addNewProductForm">
-          <form onSubmit={handleSubmit}>
-            <h2>Add new product</h2>
-
-            <FormSelect
-              label="Category"
-              options={[
-                {
-                  value: "sculptures",
-                  name: "Sculptures",
-                },
-                {
-                  value: "paintings",
-                  name: "Paintings",
-                },
-                {
-                  value: "offers",
-                  name: "Offers",
-                },
-              ]}
-              handleChange={(e) => setProductCategory(e.target.value)}
-            />
-
-            <FormInput
-              label="Name"
-              type="text"
-              value={productName}
-              handleChange={(e) => setProductName(e.target.value)}
-            />
-
-            <FormInput
-              label="Main image URL"
-              type="url"
-              value={productThumbnail}
-              handleChange={(e) => setProductThumbnail(e.target.value)}
-            />
-
-            <FormInput
-              label="Price"
-              type="number"
-              min="0.00"
-              max="10000.00"
-              step="0.01"
-              value={productPrice}
-              handleChange={(e) => setProductPrice(e.target.value)}
-            />
-
-            <CKEditor
-              onChange={(evt) => setProductDesc(evt.editor.getData())}
-            />
-
-            <br />
-
-            <Button type="submit">Add product</Button>
-          </form>
-        </div>
-      </Modal>
-
       <div className="manageProducts">
         <table border="0" cellPadding="0" cellSpacing="0">
           <tbody>
             <tr>
               <th>
-                <h1>Manage Products</h1>
+                <h1>Manage Content</h1>
               </th>
             </tr>
+            <div className="callToActions">
+              <ul>
+                <li>
+                  <Icon
+                    className="fa fa-plus-circle"
+                    onClick={() => toggleModal()}
+                  />
+                </li>
+              </ul>
+            </div>
+
+            <Modal {...configModal} className="popUpModal">
+              <div className="addNewProductForm">
+                <form onSubmit={handleSubmit}>
+                  <FormSelect
+                    options={[
+                      {
+                        value: "paintings",
+                        name: "Paintings",
+                      },
+                      {
+                        value: "sculptures",
+                        name: "Sculptures",
+                      },
+                      {
+                        value: "offers",
+                        name: "Offers",
+                      },
+                    ]}
+                    handleChange={(e) => setProductCategory(e.target.value)}
+                  />
+
+                  <FormInput
+                    className="nameInput"
+                    placeholder="Item Name Here..."
+                    type="text"
+                    value={productName}
+                    handleChange={(e) => setProductName(e.target.value)}
+                  />
+
+                  <FormInput
+                    className="priceInput"
+                    placeholder="Item Price Here..."
+                    label="Price"
+                    type="number"
+                    min="0.00"
+                    max="10000.00"
+                    step="0.01"
+                    value={productPrice}
+                    handleChange={(e) => setProductPrice(e.target.value)}
+                  />
+
+                  <FormInput
+                    label="Main image URL"
+                    type="url"
+                    value={productThumbnail}
+                    handleChange={(e) => setProductThumbnail(e.target.value)}
+                  />
+
+                  <CKEditor
+                    onChange={(evt) => setProductDesc(evt.editor.getData())}
+                  />
+
+                  <br />
+
+                  <Button type="submit">Add product</Button>
+                </form>
+              </div>
+            </Modal>
             <tr>
               <td>
                 <table
@@ -162,6 +167,13 @@ const Admin = (props) => {
                   cellPadding="10"
                   cellSpacing="0"
                 >
+                  <tr>
+                    <th>Image</th>
+                    <th>Category</th>
+                    <th>Title</th>
+                    <th>Price</th>
+                    <th>Remove</th>
+                  </tr>
                   <tbody>
                     {Array.isArray(data) &&
                       data.length > 0 &&
@@ -170,6 +182,7 @@ const Admin = (props) => {
                           productName,
                           productThumbnail,
                           productPrice,
+                          productCategory,
                           documentID,
                         } = product;
 
@@ -178,16 +191,17 @@ const Admin = (props) => {
                             <td>
                               <img className="thumb" src={productThumbnail} />
                             </td>
+                            <td>{productCategory}</td>
                             <td>{productName}</td>
                             <td>£{productPrice}</td>
                             <td>
-                              <Button
+                              <IconButton
                                 onClick={() =>
                                   dispatch(deleteProductStart(documentID))
                                 }
                               >
-                                Delete
-                              </Button>
+                                <DeleteIcon />
+                              </IconButton>
                             </td>
                           </tr>
                         );

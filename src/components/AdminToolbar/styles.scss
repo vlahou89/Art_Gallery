@@ -1,15 +1,17 @@
 .adminToolbar {
-  display: inline-block;
-  width: 100%;
-  background-color: black;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  background-color: grey;
   height: auto;
-  margin: 0 auto;
-  padding: 0 10px;
+  padding: 10px 120px;
+  position: sticky;
 
-  ul, li {
+  ul,
+  li {
     list-style-type: none;
     margin: 0;
-    padding: 0;
+    padding-left: 3rem;
   }
 
   ul {
@@ -19,21 +21,18 @@
       display: inline-block;
 
       a {
-        display: block;
-        font-size: 1.6rem;
-        line-height: 1;
-        color: white;
+        font-size: 1rem;
+
+        color: black;
+        font-weight: bold;
         padding: 10px;
-        transition: all .4s ease-in-out;
+        transition: all 0.4s ease-in-out;
 
         &:hover {
-          background-color: rgba(255,255,255,.6);
-          color: black;
-          transition: all .4s ease-in-out;
+          color: white;
+          transition: all 0.4s ease-in-out;
         }
-
       }
     }
   }
-
 }

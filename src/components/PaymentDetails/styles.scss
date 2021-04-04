@@ -1,12 +1,24 @@
 .paymentDetails {
-  display: block;
-  width: 100%;
-  max-width: 100.0rem;
-  padding: 0;
-  margin: 2rem auto;
+  float: left;
 
-  .group {
-    margin: 0 0 2rem;
+  h2 {
+    font-size: 1.2rem;
+    text-align: center;
+    font-weight: bold;
   }
 
+  .group {
+    margin-top: 0;
+    margin: 2rem;
+    display: inline-block;
+    width: 25%;
+
+    .payment {
+      margin-top: 0;
+
+      Button {
+        margin-top: 24rem;
+      }
+    }
+  }
 }

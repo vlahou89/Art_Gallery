@@ -1,20 +1,18 @@
 .directory {
-  height: 100vh;
+  height: 90vh;
   width: 100vw;
-  padding-top: 5rem;
+  padding-top: 2rem;
   padding-bottom: 5rem;
 
   h2 {
     padding-top: 2rem;
-    padding-bottom: 4rem;
+    padding-bottom: 1rem;
 
     .linkShop {
       margin-left: 38%;
-      font-family: "Pacifico", cursive;
-      color: gray;
+
       font-weight: bold;
       font-size: 2rem;
-
       &:hover {
         cursor: pointer;
         color: orange;
@@ -23,17 +21,18 @@
   }
 
   .row {
-    margin-left: 15rem;
     padding-top: 2rem;
-    display: flex;
+    margin: auto;
+    width: 75rem;
 
     .item {
-      height: 400px;
-      width: 400px;
+      height: 25rem;
+      width: 25rem;
       padding-right: 10px;
       background-repeat: no-repeat;
       background-size: cover;
       clip-path: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%);
+      display: inline-block;
 
       &:hover {
         border: solid 5px orange;
@@ -72,15 +71,32 @@
   }
 }
 
-@media only screen and (max-width: 900px) {
-  .directory .row {
-    dmargin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    .item {
-      width: 60%;
+@media only screen and (max-width: 1200px) {
+  .directory {
+    margin: 0;
+    height: 60%;
+
+    h2 {
+      text-align: center;
+
+      .linkShop {
+        margin: auto;
+      }
+    }
+    .row {
+      max-width: 100%;
+      display: block;
+      margin: auto;
+
+      .item {
+        max-width: 33%;
+        clip-path: polygon(0 0, 96% 0, 96% 100%, 0 100%);
+
+        .shopLink {
+          margin-top: 60%;
+          font-size: 1.5rem;
+        }
+      }
     }
   }
 }

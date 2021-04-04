@@ -7,6 +7,8 @@ import { checkUserSession } from "./redux/User/user.actions";
 
 // components
 import AdminToolbar from "./components/AdminToolbar";
+import Staff from "./components/AdminActions/Staff";
+import Artists from "./components/AdminActions/Artists";
 
 // hoc
 import WithAuth from "./hoc/withAuth";
@@ -15,8 +17,6 @@ import WithAdminAuth from "./hoc/withAdminAuth";
 // layouts
 import MainLayout from "./layouts/MainLayout";
 import HomepageLayout from "./layouts/HomepageLayout";
-import AdminLayout from "./layouts/AdminLayout";
-import DashboardLayout from "./layouts/DashboardLayout";
 
 // pages
 import Homepage from "./pages/Homepage";
@@ -132,9 +132,9 @@ const App = (props) => {
           path="/dashboard"
           render={() => (
             <WithAuth>
-              <DashboardLayout>
+              <MainLayout>
                 <Dashboard />
-              </DashboardLayout>
+              </MainLayout>
             </WithAuth>
           )}
         />
@@ -142,9 +142,9 @@ const App = (props) => {
           path="/order/:orderID"
           render={() => (
             <WithAuth>
-              <DashboardLayout>
+              <MainLayout>
                 <Order />
-              </DashboardLayout>
+              </MainLayout>
             </WithAuth>
           )}
         />
@@ -152,9 +152,29 @@ const App = (props) => {
           path="/admin"
           render={() => (
             <WithAdminAuth>
-              <AdminLayout>
+              <MainLayout>
                 <Admin />
-              </AdminLayout>
+              </MainLayout>
+            </WithAdminAuth>
+          )}
+        />
+        <Route
+          path="/staff"
+          render={() => (
+            <WithAdminAuth>
+              <MainLayout>
+                <Staff />
+              </MainLayout>
+            </WithAdminAuth>
+          )}
+        />
+        <Route
+          path="/artists"
+          render={() => (
+            <WithAdminAuth>
+              <MainLayout>
+                <Artists />
+              </MainLayout>
             </WithAdminAuth>
           )}
         />
