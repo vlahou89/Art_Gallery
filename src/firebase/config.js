@@ -1,5 +1,5 @@
 export const firebaseConfig = {
-  apiKey: "AIzaSyCUCJg_ONR7tiNFhJRVf2TdDDEXoU7zuSk",
+  apiKey: " ",
   authDomain: "project-35f78.firebaseapp.com",
   databaseURL:
     "https://project-35f78-default-rtdb.europe-west1.firebasedatabase.app",
