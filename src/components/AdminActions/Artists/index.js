@@ -217,6 +217,7 @@ function Artists() {
                 {/* /* EDIT ARTIST */}
                 <TableCell width="5%">
                   <IconButton
+                    className="updateButton"
                     aria-label="Edit"
                     onClick={() => openUpdateDialog(artist)}
                   >
@@ -227,6 +228,7 @@ function Artists() {
                 {/* DELETE ARTIST */}
                 <TableCell width="5%">
                   <IconButton
+                    className="deleteButton"
                     aria-label="delete"
                     onClick={() => deleteArtist(artist.id)}
                   >

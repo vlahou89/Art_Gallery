@@ -1,17 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Artists from "../index";
+import Staff from "../index";
 import Enzyme, { shallow } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import { render, screen, within } from "@testing-library/react"; // highlight-line
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe("Artists", () => {
+describe("Staff", () => {
   let appWrapper;
 
   beforeAll(() => {
-    appWrapper = shallow(<Artists />);
+    appWrapper = shallow(<Staff />);
   });
 
   it("List with Staff rendering with no issues", () => {
