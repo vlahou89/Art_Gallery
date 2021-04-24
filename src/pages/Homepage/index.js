@@ -1,6 +1,5 @@
 import React from "react";
 import Main from "../../components/Main/Main";
-import News from "../../components/News";
 import Newsletter from "../../components/Newsletter";
 import Directory from "./../../components/Directory";
 import "./styles.scss";
@@ -10,7 +9,6 @@ const Homepage = (props) => {
     <section className="homepage">
       <Main />
       <Directory />
-      <News />
       <Newsletter />
     </section>
   );

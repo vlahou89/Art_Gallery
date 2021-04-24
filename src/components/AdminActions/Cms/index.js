@@ -87,13 +87,14 @@ const Cms = (props) => {
           <tbody>
             <tr>
               <th>
-                <h1>Manage Content</h1>
+                <h1 data-selector="manage-content-title">Manage Content</h1>
               </th>
             </tr>
             <div className="callToActions">
               <ul>
                 <li>
                   <Icon
+                    data-selector="addItem"
                     className="fa fa-plus-circle"
                     onClick={() => toggleModal()}
                   />
@@ -102,7 +103,10 @@ const Cms = (props) => {
             </div>
 
             <Modal {...configModal} className="popUpModal">
-              <div className="addNewProductForm">
+              <div
+                data-selector="addNewProductForm"
+                className="addNewProductForm"
+              >
                 <form onSubmit={handleSubmit}>
                   <FormSelect
                     options={[
@@ -119,10 +123,12 @@ const Cms = (props) => {
                         name: "Offers",
                       },
                     ]}
+                    data-selector="categoryDropdown"
                     handleChange={(e) => setProductCategory(e.target.value)}
                   />
 
                   <FormInput
+                    data-selector="nameInput"
                     className="nameInput"
                     placeholder="Item Name Here..."
                     type="text"
@@ -131,6 +137,7 @@ const Cms = (props) => {
                   />
 
                   <FormInput
+                    data-selector="priceInput"
                     className="priceInput"
                     placeholder="Item Price Here..."
                     label="Price"
@@ -143,6 +150,7 @@ const Cms = (props) => {
                   />
 
                   <FormInput
+                    data-selector="imtUrlInput"
                     label="Main image URL"
                     type="url"
                     value={productThumbnail}
@@ -155,7 +163,9 @@ const Cms = (props) => {
 
                   <br />
 
-                  <Button type="submit">Add product</Button>
+                  <Button data-selector="submitBtn" type="submit">
+                    Add product
+                  </Button>
                 </form>
               </div>
             </Modal>
@@ -174,7 +184,7 @@ const Cms = (props) => {
                     <th>Price</th>
                     <th>Remove</th>
                   </tr>
-                  <tbody>
+                  <tbody data-selector="manage-content-table-body">
                     {Array.isArray(data) &&
                       data.length > 0 &&
                       data.map((product, index) => {
@@ -185,17 +195,25 @@ const Cms = (props) => {
                           productCategory,
                           documentID,
                         } = product;
-
                         return (
-                          <tr key={index}>
+                          <tr
+                            key={index}
+                            data-selector={`row-${index}`}
+                            data-id={documentID}
+                          >
                             <td>
-                              <img className="thumb" src={productThumbnail} />
+                              <img
+                                data-selector="img"
+                                className="thumb"
+                                src={productThumbnail}
+                              />
                             </td>
                             <td>{productCategory}</td>
                             <td>{productName}</td>
                             <td>£{productPrice}</td>
                             <td>
                               <IconButton
+                                data-selector="deleteBtn"
                                 onClick={() =>
                                   dispatch(deleteProductStart(documentID))
                                 }

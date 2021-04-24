@@ -15,16 +15,16 @@ const AdminToolbar = (props) => {
   if (!isAdmin) return null;
 
   return (
-    <div className="adminToolbar">
+    <div data-selector="adminToolbar" className="adminToolbar">
       <ul>
         <li>
-          <Link to="/admin">Manage Content</Link>
+          <Link data-selector="manageContent" to="/admin">Manage Content</Link>
         </li>
         <li>
-          <Link to="/staff">Staff Details</Link>
+          <Link data-selector="staffDetails" to="/staff">Staff Details</Link>
         </li>
         <li>
-          <Link to="/artists">Artist Details</Link>
+          <Link data-selector="artistDetails" to="/artists">Artist Details</Link>
         </li>
       </ul>
     </div>

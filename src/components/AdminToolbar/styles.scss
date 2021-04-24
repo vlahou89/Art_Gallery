@@ -2,20 +2,24 @@
   display: flex;
   justify-content: center;
   width: 100vw;
-  background-color: grey;
+  background: rgba(104, 104, 99, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
   height: auto;
-  padding: 10px 120px;
+  padding-bottom: 10px;
   position: sticky;
 
   ul,
   li {
     list-style-type: none;
     margin: 0;
-    padding-left: 3rem;
   }
 
   ul {
-    float: right;
+    float: middle;
 
     li {
       display: inline-block;
@@ -29,7 +33,7 @@
         transition: all 0.4s ease-in-out;
 
         &:hover {
-          color: white;
+          color: orange;
           transition: all 0.4s ease-in-out;
         }
       }

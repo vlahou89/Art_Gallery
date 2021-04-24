@@ -58,13 +58,13 @@ const Header = (props) => {
 
             {currentUser && [
               <li key={1}>
-                <Link to="/dashboard">
+                <Link data-selector="myAccount" to="/dashboard">
                   My Account
                   <i class="fas fa-user-circle"></i>
                 </Link>
               </li>,
               <li key={2}>
-                <span onClick={() => signOut()}>
+                <span data-selector="logoutBtn" onClick={() => signOut()}>
                   LogOut
                   <i class="fas fa-sign-out-alt"></i>
                 </span>

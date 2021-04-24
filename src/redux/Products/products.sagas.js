@@ -5,12 +5,17 @@ import { handleAddProduct, handleFetchProducts,
   handleFetchProduct, handleDeleteProduct } from './products.helpers';
 import productsTypes from './products.types';
 
+//generator function which receives the payload
 export function* addProduct({ payload }) {
-
+ 
   try {
     const timestamp = new Date();
+    //set the fields that we want to add in products document
     yield handleAddProduct({
+      // take all the values that destructured from payload
+      // productCategory,Product Description, productName, productThumbnail,productPrice
       ...payload,
+      //and add 2 new fields, date and Admin User's ID
       productAdminUserUID: auth.currentUser.uid,
       createdDate: timestamp
     });
@@ -24,6 +29,7 @@ export function* addProduct({ payload }) {
   }
 
 }
+
 
 export function* onAddProductStart() {
   yield takeLatest(productsTypes.ADD_NEW_PRODUCT_START, addProduct);

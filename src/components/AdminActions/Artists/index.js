@@ -44,7 +44,7 @@ function Artists() {
 
     db.firestore()
       .collection("artists")
-      .orderBy("datetime")
+      .orderBy("datetime","desc")
       .onSnapshot((snapshot) => {
         console.log("Firebase Snap!");
         setArtists(
@@ -117,7 +117,7 @@ function Artists() {
   return (
     <Container maxWidth="lg" className="table">
       <div className="tableList">
-        <h2>Add New Artist</h2>
+        <h2 data-selector="add-new-title">Add New Artist</h2>
         <form noValidate>
           <Table>
             <TableCell>
@@ -127,6 +127,7 @@ function Artists() {
                 placeholder="Full Name"
                 autoFocus
                 value={artistName}
+                data-selector="name"
                 onChange={(event) => setArtistName(event.target.value)}
               />
             </TableCell>
@@ -136,6 +137,7 @@ function Artists() {
                 name="email"
                 placeholder="Email"
                 value={artistEmail}
+                data-selector="email"
                 onChange={(event) => setArtistEmail(event.target.value)}
               />
             </TableCell>
@@ -145,6 +147,7 @@ function Artists() {
                 name="phone"
                 placeholder="Phone"
                 value={artistPhone}
+                data-selector="phone"
                 onChange={(event) => setArtistPhone(event.target.value)}
               />
             </TableCell>
@@ -154,6 +157,7 @@ function Artists() {
                 name="website"
                 placeholder="Website"
                 value={artistWebsite}
+                data-selector="website"
                 onChange={(event) => setArtistWebsite(event.target.value)}
               />
             </TableCell>
@@ -165,6 +169,7 @@ function Artists() {
             fullWidth
             onClick={addArtist}
             disabled={!artistName}
+            data-selector="submitBtn"
             startIcon={<AddCircleOutlineRounded />}
           >
             Submit
@@ -197,20 +202,20 @@ function Artists() {
             </TableRow>
           </TableHead>
 
-          <TableBody align="center">
+          <TableBody align="center" data-selector="artists-details-table-body">
             {artists.map((artist) => (
-              <TableRow key={artist.id}>
+              <TableRow key={artist.id} data-id={artist.id}>
                 {/* LISTED ARTIST DETAILS */}
-                <TableCell component="th" scope="row" width="25%" align="left">
+                <TableCell component="td" scope="row" width="25%" align="left">
                   {artist.name}
                 </TableCell>
-                <TableCell component="th" scope="row" width="25%" align="left">
+                <TableCell component="td" scope="row" width="25%" align="left">
                   {artist.email}
                 </TableCell>
-                <TableCell component="th" scope="row" width="20%" align="left">
+                <TableCell component="td" scope="row" width="20%" align="left">
                   {artist.phone}
                 </TableCell>
-                <TableCell component="th" scope="row" width="20%" align="left">
+                <TableCell component="td" scope="row" width="20%" align="left">
                   {artist.website}
                 </TableCell>
 
@@ -219,6 +224,7 @@ function Artists() {
                   <IconButton
                     className="updateButton"
                     aria-label="Edit"
+                    data-selector="editBtn"
                     onClick={() => openUpdateDialog(artist)}
                   >
                     <Edit />
@@ -230,6 +236,7 @@ function Artists() {
                   <IconButton
                     className="deleteButton"
                     aria-label="delete"
+                    data-selector="deleteBtn"
                     onClick={() => deleteArtist(artist.id)}
                   >
                     <DeleteOutlineRounded />
@@ -239,7 +246,7 @@ function Artists() {
             ))}
           </TableBody>
 
-          <Dialog open={open} onClose={handleClose}>
+          <Dialog open={open} onClose={handleClose} data-selector="updateDialog">
             <DialogContent>
               <TextField
                 autoFocus
@@ -249,6 +256,7 @@ function Artists() {
                 fullWidth
                 name="updateName"
                 value={update}
+                data-selector="updateName"
                 onChange={(event) => setUpdate(event.target.value)}
               />
               <TextField
@@ -259,6 +267,7 @@ function Artists() {
                 fullWidth
                 name="updateEmail"
                 value={updateEmail}
+                data-selector="updateEmail"
                 onChange={(event) => setUpdateEmail(event.target.value)}
               />
               <TextField
@@ -269,6 +278,7 @@ function Artists() {
                 fullWidth
                 name="updatePhone"
                 value={updatePhone}
+                data-selector="updatePhone"
                 onChange={(event) => setUpdatePhone(event.target.value)}
               />
               <TextField
@@ -279,13 +289,14 @@ function Artists() {
                 fullWidth
                 name="updateWebsite"
                 value={updateWebsite}
+                data-selector="updateWebsite"
                 onChange={(event) => setUpdateWebsite(event.target.value)}
               />
             </DialogContent>
 
             <DialogActions>
               <Button onClick={handleClose}>Cancel</Button>
-              <Button onClick={editArtist}>Save</Button>
+              <Button onClick={editArtist} data-selector="updateSubmit">Save</Button>
             </DialogActions>
           </Dialog>
         </Table>

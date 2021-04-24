@@ -1,7 +1,12 @@
 import productsTypes from './products.types';
 
+//Create action which will take the product data
+
 export const addProductStart = productData => ({
+  // and return a simple action object
+  //which will have a type
   type: productsTypes.ADD_NEW_PRODUCT_START,
+  //and the payload will be the product data that we passed to it
   payload: productData
 });
 

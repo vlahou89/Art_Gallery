@@ -48,7 +48,7 @@ function Staff() {
 
     db.firestore()
       .collection("employees")
-      .orderBy("datetime")
+      .orderBy("datetime", "desc")
       .onSnapshot((snapshot) => {
         console.log("Firebase Snap!");
         setEmployees(
@@ -121,7 +121,7 @@ function Staff() {
   return (
     <Container maxWidth="lg" className="table">
       <div className="tableList">
-        <h2>Add New Employee</h2>
+        <h2 data-selector="add-new-title">Add New Employee</h2>
         <form noValidate>
           <Table>
             <TableCell>
@@ -131,6 +131,7 @@ function Staff() {
                 placeholder="Full Name"
                 autoFocus
                 value={employeeName}
+                data-selector="name"
                 onChange={(event) => setEmployeeName(event.target.value)}
               />
             </TableCell>
@@ -140,6 +141,7 @@ function Staff() {
                 name="email"
                 placeholder="Email"
                 value={employeeEmail}
+                data-selector="email"
                 onChange={(event) => setEmployeeEmail(event.target.value)}
               />
             </TableCell>
@@ -149,6 +151,7 @@ function Staff() {
                 name="phone"
                 placeholder="Phone"
                 value={employeePhone}
+                data-selector="phone"
                 onChange={(event) => setEmployeePhone(event.target.value)}
               />
             </TableCell>
@@ -158,6 +161,7 @@ function Staff() {
                 name="address"
                 placeholder="Address"
                 value={employeeAddress}
+                data-selector="address"
                 onChange={(event) => setEmployeeAddress(event.target.value)}
               />
             </TableCell>
@@ -169,6 +173,7 @@ function Staff() {
             fullWidth
             onClick={addEmployee}
             disabled={!employeeName}
+            data-selector="submitBtn"
             startIcon={<AddCircleOutlineRounded />}
           >
             Submit
@@ -201,20 +206,20 @@ function Staff() {
             </TableRow>
           </TableHead>
 
-          <TableBody align="center">
+          <TableBody align="center" data-selector="employee-details-table-body">
             {employees.map((employee) => (
-              <TableRow key={employee.id}>
+              <TableRow key={employee.id} data-id={employee.id}>
                 {/* LISTED EMPLOYEE DETAILS */}
-                <TableCell component="th" scope="row" width="25%" align="left">
+                <TableCell component="td" scope="row" width="25%" align="left">
                   {employee.name}
                 </TableCell>
-                <TableCell component="th" scope="row" width="25%" align="left">
+                <TableCell component="td" scope="row" width="25%" align="left">
                   {employee.email}
                 </TableCell>
-                <TableCell component="th" scope="row" width="20%" align="left">
+                <TableCell component="td" scope="row" width="20%" align="left">
                   {employee.phone}
                 </TableCell>
-                <TableCell component="th" scope="row" width="20%" align="left">
+                <TableCell component="td" scope="row" width="20%" align="left">
                   {employee.address}
                 </TableCell>
 
@@ -222,6 +227,7 @@ function Staff() {
                 <TableCell width="5%">
                   <IconButton
                     aria-label="Edit"
+                    data-selector="editBtn"
                     onClick={() => openUpdateDialog(employee)}
                   >
                     <Edit />
@@ -232,6 +238,7 @@ function Staff() {
                 <TableCell width="5%">
                   <IconButton
                     aria-label="delete"
+                    data-selector="deleteBtn"
                     onClick={() => deleteEmployee(employee.id)}
                   >
                     <DeleteOutlineRounded />
@@ -241,7 +248,7 @@ function Staff() {
             ))}
           </TableBody>
 
-          <Dialog open={open} onClose={handleClose}>
+          <Dialog open={open} onClose={handleClose} data-selector="updateDialog">
             <DialogContent>
               <TextField
                 autoFocus
@@ -251,6 +258,7 @@ function Staff() {
                 fullWidth
                 name="updateName"
                 value={update}
+                data-selector="updateName"
                 onChange={(event) => setUpdate(event.target.value)}
               />
               <TextField
@@ -261,6 +269,7 @@ function Staff() {
                 fullWidth
                 name="updateEmail"
                 value={updateEmail}
+                data-selector="updateEmail"
                 onChange={(event) => setUpdateEmail(event.target.value)}
               />
               <TextField
@@ -271,6 +280,7 @@ function Staff() {
                 fullWidth
                 name="updatePhone"
                 value={updatePhone}
+                data-selector="updatePhone"
                 onChange={(event) => setUpdatePhone(event.target.value)}
               />
               <TextField
@@ -281,13 +291,14 @@ function Staff() {
                 fullWidth
                 name="updateAddress"
                 value={updateAddress}
+                data-selector="updateAddress"
                 onChange={(event) => setUpdateAddress(event.target.value)}
               />
             </DialogContent>
 
             <DialogActions>
               <Button onClick={handleClose}>Cancel</Button>
-              <Button onClick={editEmployee}>Save</Button>
+              <Button onClick={editEmployee} data-selector="updateSubmit">Save</Button>
             </DialogActions>
           </Dialog>
         </Table>

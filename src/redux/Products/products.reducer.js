@@ -1,26 +1,29 @@
-import productsTypes from './products.types';
-import productTypes from './products.types';
+import productsTypes from "./products.types";
+import productTypes from "./products.types";
 
 const INITIAL_STATE = {
   products: [],
   product: {},
 };
 
-const productsReducer = (state=INITIAL_STATE, action) => {
-  switch(action.type) {
+// pass initial state and take action
+const productsReducer = (state = INITIAL_STATE, action) => {
+  switch (action.type) {
+    //we return the state and based on that we return the products
     case productTypes.SET_PRODUCTS:
       return {
         ...state,
-        products: action.payload
-      }
+        products: action.payload,
+      };
+
     case productsTypes.SET_PRODUCT:
       return {
         ...state,
-        product: action.payload
-      }
+        product: action.payload,
+      };
     default:
       return state;
   }
 };
 
-export default productsReducer;
+export default productsReducer; //The reducer manages action with type 'SET_PRODUCT'
