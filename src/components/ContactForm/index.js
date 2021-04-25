@@ -25,9 +25,9 @@ function ContactForm() {
   }
 
   return (
-    <div className="contatForm">
-      <h2 className="text-center pt-20 font-bold ">Get in Touch</h2>
-      <form className="w-5/12 m-auto		self-auto " onSubmit={sendEmail}>
+    <div className="contatForm ">
+      <h2 className="text-center pt-40 font-bold ">Get in Touch</h2>
+      <form className="w-6/12 m-auto		self-auto " onSubmit={sendEmail}>
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
             <label
@@ -95,7 +95,7 @@ function ContactForm() {
         <div className="align-middle ">
           <div className="md">
             <button
-              className="shadow w-full flex-auto content-center bg-orange-400 text-base  hover:bg-orange-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+              className="shadow w-full flex-auto content-center bg-orange-400 text-base  hover:bg-gray-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
               type="submit"
               value="Send Message"
             >

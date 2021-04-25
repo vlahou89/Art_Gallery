@@ -1,7 +1,11 @@
 .admin {
   padding: 0 10px;
-  margin-top: 5rem;
+  height: 100%;
 
+  h1 {
+    margin-top: 10rem;
+    padding-bottom: 2rem;
+  }
   .callToActions {
     display: inline-block;
     width: 100%;
