@@ -1,6 +1,5 @@
 .newsletter {
-  max-height: 40vh;
-
+  max-height: 50vh;
   background-image: url("https://i.pinimg.com/originals/ef/de/ae/efdeae709ea42996e8413c58b4cf39fb.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -37,6 +36,7 @@
   .newsletter {
     display: inline-block;
     width: 100vw;
+    padding-bottom: 3rem;
     overflow: hidden;
   }
 }

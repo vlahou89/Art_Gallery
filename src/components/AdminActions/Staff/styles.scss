@@ -14,3 +14,13 @@
     padding-top: 0 !important;
   }
 }
+
+@media (max-width: 750px) {
+  .tableList Table {
+    display: flex;
+    flex-direction: column;
+    Tablecell {
+      height: 20px;
+    }
+  }
+}

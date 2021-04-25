@@ -5,19 +5,20 @@
     font-size: 1.2rem;
     text-align: center;
     font-weight: bold;
+    margin-top: 10rem;
   }
 
   .group {
-    margin-top: 0;
-    margin: 2rem;
-    display: inline-block;
-    width: 25%;
+    margin: auto;
+    display: block;
+    width: 50%;
 
     .payment {
       margin-top: 0;
 
       Button {
-        margin-top: 24rem;
+        margin-top: 2rem;
+        margin-bottom: 5rem;
       }
     }
   }
