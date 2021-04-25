@@ -6,7 +6,7 @@
     text-align: center;
     font-size: 1.5rem;
     font-weight: bold;
-    padding-top: 10rem;
+    padding-top: 8rem;
   }
 
   .productResults {
@@ -77,9 +77,16 @@
   }
 }
 
-@media only screen and (max-width: 980px) {
+@media only screen and (max-width: 769px) {
   .product {
-    width: 50%;
-    height: 100%;
+    width: 40%;
+    margin: auto;
+  }
+}
+
+@media (max-width: 421px) {
+  .product {
+    width: 80%;
+    margin: auto;
   }
 }

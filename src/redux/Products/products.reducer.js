@@ -26,4 +26,5 @@ const productsReducer = (state = INITIAL_STATE, action) => {
   }
 };
 
-export default productsReducer; //The reducer manages action with type 'SET_PRODUCT'
+//The reducer manages action with type 'SET_PRODUCT'
+export default productsReducer;
