@@ -1,7 +1,8 @@
 .directory {
-  height: 80vh;
+  height: 100vh;
   width: 100vw;
-  padding-top: 2rem;
+  padding-top: 5rem;
+  margin-bottom: 3rem;
 
   h2 {
     padding-top: 2rem;
@@ -72,12 +73,12 @@
 
 @media (max-width: 1024px) {
   .directory {
-    margin: 0;
-    height: 50vh;
     margin-bottom: 3rem;
+    height: 60vh;
 
     h2 {
       text-align: center;
+      margin-top: 1rem;
 
       .linkShop {
         margin: auto;
