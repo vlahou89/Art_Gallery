@@ -74,6 +74,7 @@
       -webkit-transform: translateY(-50%);
       -moz-transform: translateY(-50%);
       transform: translateY(-50%);
+      
 
       i {
         display: none;
@@ -105,7 +106,7 @@
 
           &:hover {
             color: orange;
-            text-decoration: 3px underline;
+           
             text-decoration-color: orange;
           }
         }

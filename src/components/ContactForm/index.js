@@ -26,7 +26,7 @@ function ContactForm() {
 
   return (
     <div className="contatForm ">
-      <h2 className="text-center pt-40 font-bold ">Get in Touch</h2>
+      <h2 className="text-center pt-32 font-bold ">Get in Touch</h2>
       <form className="w-6/12 m-auto		self-auto " onSubmit={sendEmail}>
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
